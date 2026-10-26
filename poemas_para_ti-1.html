@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<title>Para ti, con todo lo que no sé decirte</title>
+<style>
+:root{--black:#101010;--white:#fffdf8;--gold:#c9a646;--muted:#d7d1c2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--black);color:var(--white);font-family:Georgia,'Times New Roman',serif}
+button{font:inherit}
+.cover{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px 20px;background:radial-gradient(ellipse at center,#28251c 0%,#101010 65%)}
+.eyebrow{color:var(--gold);letter-spacing:.24em;text-transform:uppercase;font:12px Arial,sans-serif}
+h1{font-weight:normal;font-size:clamp(2.2rem,8vw,4.6rem);line-height:1.08;max-width:780px;margin:22px 0;color:var(--white)}
+.rule{width:90px;height:1px;background:var(--gold);margin:14px auto 24px}
+.cover p{max-width:450px;line-height:1.7;color:#ddd7ca;font-size:1.08rem}
+.envelope-button{border:1px solid var(--gold);background:transparent;color:var(--gold);padding:13px 24px;border-radius:3px;cursor:pointer;margin-top:20px;letter-spacing:.04em}
+.envelope-button:hover{background:var(--gold);color:#111}
+.envelope-wrap{width:150px;height:100px;position:relative;margin:24px auto 10px;perspective:600px}
+.envelope{position:absolute;inset:0;background:#f9f6ed;border:1px solid var(--gold);border-radius:3px;overflow:hidden;box-shadow:0 10px 30px #0008}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(140deg,transparent 49%,#d6c8a5 50%,transparent 51%),linear-gradient(40deg,transparent 49%,#e4dac3 50%,transparent 51%)}
+.flap{position:absolute;z-index:2;left:0;top:0;width:0;height:0;border-left:74px solid transparent;border-right:74px solid transparent;border-top:56px solid var(--gold);transform-origin:top;transition:transform .8s ease}
+.seal{position:absolute;z-index:3;left:calc(50% - 13px);top:38px;width:26px;height:26px;background:#b28d2f;border-radius:50%;color:#fff;display:grid;place-items:center;font-size:14px}
+.envelope-wrap.open .flap{transform:rotateX(180deg)}
+.envelope-wrap.open .seal{opacity:0;transition:opacity .3s}
+main{max-width:850px;margin:auto;padding:24px 18px 70px}
+.intro{text-align:center;padding:36px 10px;color:var(--muted);line-height:1.7}
+.poem{background:var(--white);color:#24221d;border:1px solid var(--gold);padding:clamp(22px,5vw,42px);margin:20px 0;border-radius:3px;box-shadow:0 10px 28px #0003;opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.poem.visible{opacity:1;transform:translateY(0)}
+.poem h2{text-align:center;font-weight:normal;color:#9c7825;font-size:1.8rem;margin:0 0 25px}
+.poem p{white-space:pre-line;line-height:1.85;font-size:1.05rem;margin:0 0 18px}
+.quote{text-align:center;font-style:italic}
+footer{text-align:center;color:#c9c1b1;padding:35px 18px 50px;line-height:1.8}
+.gold{color:var(--gold)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<section class="cover">
+  <div class="eyebrow">Una pequeña colección de sentimientos</div>
+  <div class="envelope-wrap" id="envelope" aria-hidden="true"><div class="envelope"></div><div class="flap"></div><div class="seal">♥</div></div>
+  <h1>Para ti, con todo lo que no sé decirte</h1>
+  <div class="rule"></div>
+  <p>Hay cosas que no siempre me salen en voz alta. Por eso guardé un pedacito de lo que siento en estas palabras, solo para ti.</p>
+  <button class="envelope-button" id="openButton">Abrir mi carta ✦</button>
+</section>
+<main id="poems" hidden>
+  <div class="intro">Lee despacio. Cada texto guarda algo que quería decirte. <span class="gold">♥</span></div>
+  <article class="poem"><h2>Por aclarar</h2>
+    <p>Me gustas,
+pero no de una forma común,
+como puede gustarme un buen libro
+o un buen vino.</p>
+    <p>Me gustas de otra manera,
+más bien caótica e impuntual,
+más salvaje y profunda.
+Como al revolucionario la revolución,
+como al niño el recreo.</p>
+  </article>
+  <article class="poem"><h2>Ojalá</h2>
+    <p>Ojalá me beses
+Porque tengo miedo a que me dejes
+Aunque a veces me estreses
+No quiero que te alejes</p>
+    <p>Ojalá y pueda descansar
+Porque no puedo dejar de pensar
+En que tú me quieras amar
+Espero que tú me puedas aceptar</p>
+    <p>Ojalá quieras bailar conmigo
+Y que no me veas como amigo
+Porque quiero vivir una vida contigo
+Para que duermas a lado mío</p>
+    <p>Tu eres como un sueño
+Porque eres perfecto
+Ojalá leas este verso
+Para que veas como me siento</p>
+  </article>
+  <article class="poem"><h2>Tengo ganas de conocerte</h2>
+    <p class="quote">“Tengo ganas de conocerte.
+Quiero saber quien eres, que te gusta,
+que te hace feliz, a que le tienes
+miedo... quiero hablar contigo de
+cosas profundas y que nos riamos
+de estupideces. Quiero que
+confíes en mi y que el tiempo diga
+que vendrá después”.</p>
+  </article>
+  <article class="poem"><h2>No tengo mucho que ofrecerte</h2>
+    <p class="quote">No tengo mucho que ofrecerte, tampoco sé cómo probarte todo lo que siento, solo necesito que confíes en mí y creas que desde que llegaste, has mejorado mi mundo y me has hecho sonreír como no lo hacía hace mucho.</p>
+  </article>
+  <article class="poem"><h2>Déjame</h2>
+    <p>Déjame enseñarte un lugar
+Donde sin saberlo, ya tú entraste.
+Como un ladrón de media noche,
+De mis sentidos te apoderaste.</p>
+    <p>Te mostraré cada rincón
+Donde tus ojos siempre arden.
+Como un tatuaje sin olvido,
+Lo único que quiero, es amarte.</p>
+    <p>Déjame,
+
+Déjame ser dueña de tu corazón
+Porque del mío, tú te adueñaste.</p>
+  </article>
+  <article class="poem"><h2>Hay algo en ti</h2>
+    <p class="quote">“Hay algo en ti que me resulta adictivo,
+quizá tu sonrisa, tu mirada,
+tu voz, tus ojos, o tal vez
+todo junto.”</p>
+  </article>
+  <article class="poem"><h2>Me gustas</h2>
+    <p>Me gustas
+porque no soy tu mundo,
+ni tu sonrisa
+y tampoco tu razón de vivir.
+Cuando te encontré
+ya tenías tu propio camino
+y tus motivos para sonreír.
+Yo sencillamente llegué
+para admirar tu grandeza
+y acompañarte en tu vuelo.</p>
+  </article>
+  <article class="poem"><h2>Tu mirar</h2>
+    <p>En el cielo hay estrellas
+Que no he podido contar.
+En tus ojos hay miradas,
+Que no logro descifrar.</p>
+    <p>Solo sé que tienes algo
+Que me llama a la atención.
+Se ha metido en mi alma
+Y se robó mi corazón.</p>
+  </article>
+</main>
+<footer>Hecho con cariño, palabra por palabra.<br><span class="gold">✦</span> Para ti <span class="gold">♥</span></footer>
+<script>
+const btn=document.getElementById('openButton');
+btn.addEventListener('click',()=>{
+  const env=document.getElementById('envelope');
+  env.classList.add('open');
+  btn.textContent='La carta está abierta ♥';
+  setTimeout(()=>{
+    const main=document.getElementById('poems');
+    main.hidden=false;
+    document.querySelectorAll('.poem').forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*130));
+    main.scrollIntoView({behavior:'smooth'});
+  },650);
+});
+</script>
+</body>
+</html>
